@@ -13,3 +13,196 @@
   line-height: var(--line-height-main);
   color: var(--text-color);
 }
+
+/* === Декоративные уголки — общий класс, используется в header и позже в footer === */
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  width: 1.5625rem; /* 25px */
+  height: 1.5625rem;
+  border-style: solid;
+  border-color: var(--accent-color);
+  border-width: 0;
+}
+
+.decorated-zone::before {
+  top: 0.625rem; /* 10px */
+  right: 0.625rem;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.decorated-zone::after {
+  bottom: 0.625rem;
+  left: 0.625rem;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+/* === Шапка: три строки — меню сверху, заголовок по центру, описание у низа === */
+.header {
+  position: relative;
+  display: grid;
+  align-content: start;
+  height: 100vh;
+  min-height: 41.75rem; /* 668px */
+  padding: 0.625rem;
+}
+
+.header__theme-menu {
+  grid-row: 1;
+  justify-self: end;
+  margin-top: 4rem;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem; /* 10px между кнопками */
+}
+
+.header__theme-menu-button {
+  height: 1.625rem; /* 26px — фиксированная высота кнопки, как в макете */
+  padding: 0 0.8125rem; /* 0 13px */
+  color: var(--accent-color);
+  font-weight: 400;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-transform: lowercase;
+  line-height: 1;
+}
+
+.header__theme-menu-button_active {
+  border-color: var(--accent-color);
+  pointer-events: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom-color: var(--accent-color);
+}
+
+.header__theme-menu-button:not(.header__theme-menu-button_active):hover {
+  border-color: rgb(255 0 112 / 0.4);
+}
+
+/* === Заголовок "no focus" === */
+.header__title {
+  margin-top: 4.2rem;
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.825;
+  color: var(--heading-font-color);
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__description {
+  margin-top: 3.4375rem; /* 55px — зазор от заголовка до описания */
+}
+
+/* === Розовая плашка с текстом — переиспользуемый класс, без привязки к шапке === */
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--title-text-color);
+}
+
+/* === Декоративная надпись "REC" с точкой === */
+.header__rec-decor {
+  position: absolute;
+  top: 0.625rem;
+  right: 1.188rem;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-weight: 400;
+  color: var(--accent-color);
+}
+
+.header__rec-decor::after {
+  content: '';
+  width: 0.5625rem; /* 9px */
+  height: 0.5625rem;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
+/* === Секция "Что мешает сосредоточиться": заголовок + список карточек === */
+.distraction {
+  margin-top: 2.5rem; /* 40px */
+  padding: 0 0.625rem; /* 10px — тот же боковой inset, что и в шапке */
+}
+
+.distraction__title {
+  font-size: 1.125rem; /* явно задаём — иначе сработает дефолт h2 браузера */
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.distraction__list {
+  display: grid;
+  gap: 1.25rem; /* 20px между карточками */
+  margin-top: 1.25rem; /* 20px от заголовка секции до списка */
+}
+
+.distraction__card-title {
+  font-size: 1.125rem;
+  font-weight: 700; /* .title-decor веса не задаёт — добавляем здесь */
+}
+
+.distraction__card-text {
+  margin-top: 0.625rem; /* 10px — зазор от заголовка карточки до текста */
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.distraction__link {
+  color: var(--text-color);
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+  border-radius: 2px; /* смягчаем углы рамки фокуса */
+}
+
+.distraction__link:hover {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.distraction__link:focus-visible {
+  outline: none; /* убираем нативный outline — заменяем своей рамкой ниже */
+  border: 1px solid #f1b2ce;
+}
+
+/* === Секция "Причины": заголовок + список карточек === */
+.reasons {
+  margin-top: 3.125rem; /* 50px — стандартный зазор между секциями контента */
+  padding: 0 0.625rem; /* 10px — тот же боковой inset, что и в шапке */
+}
+
+.reasons__title {
+  font-size: 1.125rem;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.reasons__list {
+  display: grid;
+  gap: 1.25rem; /* 20px между карточками */
+  margin-top: 1.25rem; /* 20px от заголовка секции до списка */
+}
+
+.reasons__card-title {
+  font-size: 1.125rem;
+  font-weight: 700; /* .title-decor веса не задаёт — добавляем здесь */
+}
+
+.reasons__card-text {
+  margin-top: 0.625rem; /* 10px — зазор от заголовка карточки до текста */
+  color: var(--text-color);
+  font-weight: 400;
+}
