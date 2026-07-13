@@ -1,7 +1,4 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
   background-color: var(--page-bg-color);
   background-image: var(--page-bg-image);
   background-position: center;
@@ -63,11 +60,11 @@
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem; /* 10px между кнопками */
+  gap: 0.625rem; /* 10px */
 }
 
 .header__theme-menu-button {
-  height: 1.625rem; /* 26px — фиксированная высота кнопки, как в макете */
+  height: 1.625rem; /* 26px */
   padding: 0 0.8125rem; /* 0 13px */
   color: var(--accent-color);
   font-weight: 400;
@@ -91,18 +88,22 @@
   border-color: rgb(255 0 112 / 0.4);
 }
 
-/* === Заголовок "no focus" === */
-.header__title {
-  margin-top: 4.2rem;
+/* === Общая типографика заголовков "no focus" / "focus": шапка и футер === */
+.header__title,
+.footer__title {
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.825;
   color: var(--heading-font-color);
+}
+
+.header__title {
+  margin-top: 4.2rem;
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .header__description {
-  margin-top: 3.4375rem; /* 55px — зазор от заголовка до описания */
+  margin-top: 3.4375rem; /* 55px */
 }
 
 /* === Розовая плашка с текстом — переиспользуемый класс, без привязки к шапке === */
@@ -135,28 +136,28 @@
 /* === Секция "Что мешает сосредоточиться": заголовок + список карточек === */
 .distraction {
   margin-top: 2.5rem; /* 40px */
-  padding: 0 0.625rem; /* 10px — тот же боковой inset, что и в шапке */
+  padding: 0 0.625rem; /* 10px */
 }
 
 .distraction__title {
-  font-size: 1.125rem; /* явно задаём — иначе сработает дефолт h2 браузера */
+  font-size: 1.125rem;
   color: var(--accent-color);
   font-weight: 700;
 }
 
 .distraction__list {
   display: grid;
-  gap: 1.25rem; /* 20px между карточками */
-  margin-top: 1.25rem; /* 20px от заголовка секции до списка */
+  gap: 1.25rem; /* 20px */
+  margin-top: 1.25rem; /* 20px */
 }
 
 .distraction__card-title {
   font-size: 1.125rem;
-  font-weight: 700; /* .title-decor веса не задаёт — добавляем здесь */
+  font-weight: 700;
 }
 
 .distraction__card-text {
-  margin-top: 0.625rem; /* 10px — зазор от заголовка карточки до текста */
+  margin-top: 0.625rem; /* 10px */
   color: var(--text-color);
   font-weight: 400;
 }
@@ -165,7 +166,7 @@
   color: var(--text-color);
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--accent-color);
-  border-radius: 2px; /* смягчаем углы рамки фокуса */
+  border-radius: 2px;
 }
 
 .distraction__link:hover {
@@ -174,14 +175,14 @@
 }
 
 .distraction__link:focus-visible {
-  outline: none; /* убираем нативный outline — заменяем своей рамкой ниже */
+  outline: none;
   border: 1px solid #f1b2ce;
 }
 
 /* === Секция "Причины": заголовок + список карточек === */
 .reasons {
-  margin-top: 3.125rem; /* 50px — стандартный зазор между секциями контента */
-  padding: 0 0.625rem; /* 10px — тот же боковой inset, что и в шапке */
+  margin-top: 3.125rem; /* 50px */
+  padding: 0 0.625rem; /* 10px */
 }
 
 .reasons__title {
@@ -192,17 +193,251 @@
 
 .reasons__list {
   display: grid;
-  gap: 1.25rem; /* 20px между карточками */
-  margin-top: 1.25rem; /* 20px от заголовка секции до списка */
+  gap: 1.25rem; /* 20px */
+  margin-top: 1.25rem; /* 20px */
 }
 
 .reasons__card-title {
   font-size: 1.125rem;
-  font-weight: 700; /* .title-decor веса не задаёт — добавляем здесь */
+  font-weight: 700;
 }
 
 .reasons__card-text {
-  margin-top: 0.625rem; /* 10px — зазор от заголовка карточки до текста */
+  margin-top: 0.625rem; /* 10px */
   color: var(--text-color);
   font-weight: 400;
+}
+
+/* === Секция "Советы": заголовок + анонс-строка + список карточек === */
+.tips {
+  margin-top: 3.125rem; /* 50px */
+  padding: 0 0.625rem; /* 10px */
+}
+
+.tips__title {
+  font-size: 1.125rem;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.tips__list {
+  display: grid;
+  gap: 1.25rem; /* 20px */
+  margin-top: 1.25rem;
+}
+
+.tips__lead {
+  font-weight: 700;
+}
+
+.tips__card-title {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.tips__card-text {
+  margin-top: 0.625rem; /* 10px */
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.tips__link {
+  color: var(--text-color);
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+  border-radius: 2px;
+}
+
+.tips__link:hover {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.tips__link:focus-visible {
+  outline: none;
+  border: 1px solid #f1b2ce;
+}
+
+/* === Секция "Галерея": подпись + сетка картинок === */
+.gallery {
+  margin-top: 3.125rem; /* 50px */
+  padding: 0 0.625rem; /* 10px */
+}
+
+.gallery__caption {
+  font-weight: 700;
+}
+
+.gallery__grid {
+  display: grid;
+  gap: 0.625rem; /* 10px */
+  margin-top: 0.625rem; /* 10px */
+}
+
+.gallery__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* === Подвал: тот же размер экрана, что у шапки, но текст — по центру === */
+.footer {
+  margin-top: 2.5rem; /* 40px */
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  min-height: 41.75rem; /* 668px */
+  padding: 0.625rem;
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+@media (min-width: 768px) {
+  .decorated-zone::before {
+    top: 1.25rem; /* 20px */
+    right: 1.25rem;
+  }
+  .decorated-zone::after {
+    bottom: 1.25rem;
+    left: 1.25rem;
+  }
+
+  .header,
+  .footer {
+    min-height: 64rem; /* 1024px */
+    padding: 1.25rem; /* 20px */
+  }
+
+  .header__theme-menu {
+    margin-top: 10.65rem; /* 170.4px */
+  }
+
+  .header__title,
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__title {
+    margin-top: 10.938rem; /* 175px */
+    margin-left: -1.25rem; /* -20px */
+  }
+
+  .header__description {
+    margin-top: 10.125rem; /* 162px */
+    justify-self: end;
+    width: 50%;
+  }
+
+  .header__rec-decor {
+    top: 1.25rem; /* 20px */
+    right: 1.8125rem; /* 29px */
+  }
+
+  .distraction {
+    margin-top: 3.75rem; /* 60px */
+    padding: 0 1.25rem;
+  }
+
+  .reasons,
+  .tips,
+  .gallery {
+    margin-top: 5rem; /* 80px */
+    padding: 0 1.25rem; /* 20px */
+  }
+
+  .distraction,
+  .tips {
+    display: grid;
+    grid-template-columns: 14.75rem 1fr;
+    align-items: start;
+    column-gap: 1.25rem; /* 20px */
+  }
+
+  .distraction__list,
+  .tips__list {
+    margin-top: 0;
+  }
+
+  .reasons__title {
+    width: 30%;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 12rem 14.375rem 19.875rem; /* 192 / 230 / 318px */
+    gap: 1.25rem; /* 20px */
+    margin-top: 1.25rem; /* 20px */
+  }
+  .gallery__image {
+    height: 100%;
+    object-fit: cover;
+  }
+  /* 1. sunset — верхняя левая широкая ячейка */
+  .gallery__image:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+  /* 2. ice-cream — правая высокая ячейка на две строки */
+  .gallery__image:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+  /* 3. tape — левая высокая ячейка на две строки */
+  .gallery__image:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2 / 4;
+  }
+  /* 4. books — центральная маленькая ячейка */
+  .gallery__image:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  /* 5. street — нижняя широкая ячейка */
+  .gallery__image:nth-child(5) {
+    grid-column: 2 / 4;
+    grid-row: 3;
+  }
+
+  .footer {
+    margin-top: 3.75rem; /* 60px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .header,
+  .footer {
+    min-height: 48rem; /* 768px */
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    margin-top: 0;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .header__title {
+    margin-top: 17.0625rem; /* 273px */
+  }
+
+  .header__description {
+    margin-top: 7.125rem; /* 114px */
+  }
+
+  .distraction,
+  .tips {
+    grid-template-columns: 19.6875rem 1fr;
+  }
+
+  .reasons__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery__grid {
+    grid-template-rows: 16.25rem 19.6875rem 27.0625rem; /* 260 / 315 / 433px */
+  }
 }
