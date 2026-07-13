@@ -1,21 +1,15 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
-
 :root {
-  /* Шрифт: единственное семейство во всём проекте, моноширинное */
   --font-family: 'IBM Plex mono', monospace;
   --font-size-main: 1.125rem; /* 18px */
   --line-height-main: 1.3;
 
-  /* Цвета тёмной темы — основная тема сайта */
   --accent-color: #ff0070;
+  --secondary-accent-color: #ff0070;
   --text-color: #f1b2ce;
   --title-text-color: #000028;
   --heading-font-color: #db00ff;
   --page-bg-color: #000028;
+  --theme-button-hover-border: rgb(255 0 112 / 0.4);
 
-  /* Фон страницы: путь вынесен в переменную, чтобы light.css мог его переопределить */
   --page-bg-image: url('../images/cover-image-dark.png');
 }

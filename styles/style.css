@@ -1,14 +1,14 @@
 .page {
+  color: var(--text-color);
+
+  font-family: var(--font-family);
+  font-size: var(--font-size-main);
+  line-height: var(--line-height-main);
   background-color: var(--page-bg-color);
   background-image: var(--page-bg-image);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-
-  font-family: var(--font-family);
-  font-size: var(--font-size-main);
-  line-height: var(--line-height-main);
-  color: var(--text-color);
 }
 
 /* === Декоративные уголки — общий класс, используется в header и позже в footer === */
@@ -22,9 +22,9 @@
   position: absolute;
   width: 1.5625rem; /* 25px */
   height: 1.5625rem;
-  border-style: solid;
-  border-color: var(--accent-color);
   border-width: 0;
+  border-style: solid;
+  border-color: var(--secondary-accent-color);
 }
 
 .decorated-zone::before {
@@ -65,36 +65,38 @@
 
 .header__theme-menu-button {
   height: 1.625rem; /* 26px */
-  padding: 0 0.8125rem; /* 0 13px */
-  color: var(--accent-color);
-  font-weight: 400;
-  background: transparent;
   border: 1px solid transparent;
-  cursor: pointer;
-  text-transform: lowercase;
+  padding: 0 0.8125rem; /* 0 13px */
+  color: var(--secondary-accent-color);
+  font-weight: 400;
   line-height: 1;
+  text-transform: lowercase;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
 }
 
 .header__theme-menu-button_active {
-  border-color: var(--accent-color);
+  border-color: var(--secondary-accent-color);
   pointer-events: none;
 }
 
 .header__theme-menu-button:focus-visible {
-  border-bottom-color: var(--accent-color);
+  border-bottom-color: var(--secondary-accent-color);
+  outline: none;
 }
 
 .header__theme-menu-button:not(.header__theme-menu-button_active):hover {
-  border-color: rgb(255 0 112 / 0.4);
+  border-color: var(--theme-button-hover-border);
 }
 
 /* === Общая типографика заголовков "no focus" / "focus": шапка и футер === */
 .header__title,
 .footer__title {
+  color: var(--heading-font-color);
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.825;
-  color: var(--heading-font-color);
 }
 
 .header__title {
@@ -104,12 +106,13 @@
 
 .header__description {
   margin-top: 3.4375rem; /* 55px */
+  font-weight: 700;
 }
 
 /* === Розовая плашка с текстом — переиспользуемый класс, без привязки к шапке === */
 .title-decor {
-  background-color: var(--accent-color);
   color: var(--title-text-color);
+  background-color: var(--accent-color);
 }
 
 /* === Декоративная надпись "REC" с точкой === */
@@ -120,150 +123,91 @@
   display: flex;
   align-items: center;
   gap: 0.625rem;
-  font-weight: 400;
   color: var(--accent-color);
+  font-weight: 400;
 }
 
 .header__rec-decor::after {
   content: '';
   width: 0.5625rem; /* 9px */
   height: 0.5625rem;
-  background-color: var(--accent-color);
   border-radius: 50%;
   box-shadow: 0 0 4px 2px var(--accent-color);
+  background-color: var(--accent-color);
 }
 
-/* === Секция "Что мешает сосредоточиться": заголовок + список карточек === */
 .distraction {
   margin-top: 2.5rem; /* 40px */
   padding: 0 0.625rem; /* 10px */
 }
 
-.distraction__title {
-  font-size: 1.125rem;
-  color: var(--accent-color);
-  font-weight: 700;
-}
-
-.distraction__list {
-  display: grid;
-  gap: 1.25rem; /* 20px */
-  margin-top: 1.25rem; /* 20px */
-}
-
-.distraction__card-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-
-.distraction__card-text {
-  margin-top: 0.625rem; /* 10px */
-  color: var(--text-color);
-  font-weight: 400;
-}
-
-.distraction__link {
-  color: var(--text-color);
-  text-decoration: none;
-  text-shadow: 2px 2px 0 var(--accent-color);
-  border-radius: 2px;
-}
-
-.distraction__link:hover {
-  text-decoration: underline;
-  text-decoration-skip-ink: none;
-}
-
-.distraction__link:focus-visible {
-  outline: none;
-  border: 1px solid #f1b2ce;
-}
-
-/* === Секция "Причины": заголовок + список карточек === */
-.reasons {
+.reasons,
+.tips,
+.gallery {
   margin-top: 3.125rem; /* 50px */
   padding: 0 0.625rem; /* 10px */
 }
 
-.reasons__title {
-  font-size: 1.125rem;
-  color: var(--accent-color);
-  font-weight: 700;
-}
-
-.reasons__list {
-  display: grid;
-  gap: 1.25rem; /* 20px */
-  margin-top: 1.25rem; /* 20px */
-}
-
-.reasons__card-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-
-.reasons__card-text {
-  margin-top: 0.625rem; /* 10px */
-  color: var(--text-color);
-  font-weight: 400;
-}
-
-/* === Секция "Советы": заголовок + анонс-строка + список карточек === */
-.tips {
-  margin-top: 3.125rem; /* 50px */
-  padding: 0 0.625rem; /* 10px */
-}
-
+/* === Секции: заголовки h2 === */
+.distraction__title,
+.reasons__title,
 .tips__title {
-  font-size: 1.125rem;
-  color: var(--accent-color);
+  color: var(--secondary-accent-color);
   font-weight: 700;
+  font-size: 1.125rem;
 }
 
+/* === Секции: списки карточек === */
+.distraction__list,
+.reasons__list,
 .tips__list {
   display: grid;
   gap: 1.25rem; /* 20px */
-  margin-top: 1.25rem;
+  margin-top: 1.25rem; /* 20px */
 }
 
-.tips__lead {
+.distraction__card-title,
+.reasons__card-title {
   font-weight: 700;
+  font-size: 1.125rem;
 }
 
 .tips__card-title {
-  font-size: 1.125rem;
   font-weight: 400;
+  font-size: 1.125rem;
 }
 
+/* === Карточки: текст абзацев === */
+.distraction__card-text,
+.reasons__card-text,
 .tips__card-text {
   margin-top: 0.625rem; /* 10px */
   color: var(--text-color);
   font-weight: 400;
 }
 
+/* === Инлайн-ссылки в тексте === */
+.distraction__link,
 .tips__link {
+  border-radius: 2px;
   color: var(--text-color);
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--accent-color);
-  border-radius: 2px;
 }
 
+.distraction__link:hover,
 .tips__link:hover {
   text-decoration: underline;
   text-decoration-skip-ink: none;
 }
 
+.distraction__link:focus-visible,
 .tips__link:focus-visible {
+  border: 1px solid var(--text-color);
   outline: none;
-  border: 1px solid #f1b2ce;
 }
 
-/* === Секция "Галерея": подпись + сетка картинок === */
-.gallery {
-  margin-top: 3.125rem; /* 50px */
-  padding: 0 0.625rem; /* 10px */
-}
-
+.tips__lead,
 .gallery__caption {
   font-weight: 700;
 }
@@ -282,11 +226,11 @@
 
 /* === Подвал: тот же размер экрана, что у шапки, но текст — по центру === */
 .footer {
-  margin-top: 2.5rem; /* 40px */
   display: grid;
   place-items: center;
   height: 100vh;
   min-height: 41.75rem; /* 668px */
+  margin-top: 2.5rem; /* 40px */
   padding: 0.625rem;
 }
 
@@ -325,9 +269,9 @@
   }
 
   .header__description {
-    margin-top: 10.125rem; /* 162px */
     justify-self: end;
     width: 50%;
+    margin-top: 10.125rem; /* 162px */
   }
 
   .header__rec-decor {
@@ -373,6 +317,7 @@
   .gallery__image {
     height: 100%;
     object-fit: cover;
+    object-position: center;
   }
   /* 1. sunset — верхняя левая широкая ячейка */
   .gallery__image:nth-child(1) {
