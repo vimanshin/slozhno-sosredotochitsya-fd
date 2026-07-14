@@ -1,5 +1,5 @@
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not(.theme-dark):not(.theme-light) {
     --accent-color: #ff8dcb;
     --secondary-accent-color: #353430;
     --text-color: #353430;
@@ -10,7 +10,7 @@
     --page-bg-image: url('../images/cover-image-light.png');
   }
 
-  .header__rec-decor {
+  :root:not(.theme-dark) .header__rec-decor {
     display: none;
   }
 }

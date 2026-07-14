@@ -1,5 +1,4 @@
 :root.theme-dark {
-
   --accent-color: #ff0070;
   --secondary-accent-color: #ff0070;
   --text-color: #f1b2ce;
@@ -8,4 +7,8 @@
   --page-bg-color: #000028;
   --theme-button-hover-border: rgb(255 0 112 / 0.4);
   --page-bg-image: url('../images/cover-image-dark.png');
+}
+
+:root.theme-dark .header__rec-decor {
+  display: flex;
 }

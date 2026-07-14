@@ -11,7 +11,6 @@
   background-attachment: fixed;
 }
 
-/* === Декоративные уголки — общий класс, используется в header и позже в footer === */
 .decorated-zone {
   position: relative;
 }
@@ -20,12 +19,12 @@
   content: '';
   position: absolute;
   width: 1.5625rem; /* 25px */
-  height: 1.5625rem;
+  height: 1.5625rem; /* 25px */
   border-width: 0;
   border-style: solid;
   border-color: var(--secondary-accent-color);
   top: 0.625rem; /* 10px */
-  right: 0.625rem;
+  right: 0.625rem; /* 10px */
   border-top-width: 1px;
   border-right-width: 1px;
 }
@@ -34,30 +33,29 @@
   content: '';
   position: absolute;
   width: 1.5625rem; /* 25px */
-  height: 1.5625rem;
+  height: 1.5625rem; /* 25px */
   border-width: 0;
   border-style: solid;
   border-color: var(--secondary-accent-color);
-  bottom: 0.625rem;
-  left: 0.625rem;
+  bottom: 0.625rem; /* 10px */
+  left: 0.625rem; /* 10px */
   border-bottom-width: 1px;
   border-left-width: 1px;
 }
 
-/* === Шапка: три строки — меню сверху, заголовок по центру, описание у низа === */
 .header {
   position: relative;
   display: grid;
   align-content: start;
   height: 100vh;
   min-height: 41.75rem; /* 668px */
-  padding: 0.625rem;
+  padding: 0.625rem; /* 10px */
 }
 
 .header__theme-menu {
   grid-row: 1;
   justify-self: end;
-  margin-top: 4rem;
+  margin-top: 4rem; /* 64px */
 }
 
 .header__theme-menu-list {
@@ -93,13 +91,12 @@
   border-color: var(--theme-button-hover-border);
 }
 
-/* === Заголовки "no focus" / "focus": шапка и футер === */
 .header__title {
   color: var(--heading-font-color);
   font-weight: 700;
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem); /* 116px … 120px */
   line-height: 0.825;
-  margin-top: 4.2rem;
+  margin-top: 4.2rem; /* 67.2px */
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
@@ -108,24 +105,22 @@
   font-weight: 700;
 }
 
-/* === Розовая плашка с текстом — переиспользуемый класс, без привязки к шапке === */
 .title-decor {
   color: var(--title-text-color);
   background-color: var(--accent-color);
 }
 
 .title-decor--size {
-  font-size: 18px
+  font-size: 1.125rem; /* 18px */
 }
 
-/* === Декоративная надпись "REC" с точкой === */
 .header__rec-decor {
   position: absolute;
-  top: 0.625rem;
-  right: 1.188rem;
+  top: 0.625rem; /* 10px */
+  right: 1.188rem; /* 19px */
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: 0.625rem; /* 10px */
   color: var(--accent-color);
   font-weight: 400;
 }
@@ -133,26 +128,25 @@
 .header__rec-decor::after {
   content: '';
   width: 0.5625rem; /* 9px */
-  height: 0.5625rem;
+  height: 0.5625rem; /* 9px */
   border-radius: 50%;
   box-shadow: 0 0 4px 2px var(--accent-color);
   background-color: var(--accent-color);
 }
 
-/* === Секции с карточками === */
 .section {
   margin-top: 3.125rem; /* 50px */
   padding: 0 0.625rem; /* 10px */
 }
 
 .section_after-header {
-  margin-top: 2.5rem; /* 40px — первая секция после шапки */
+  margin-top: 2.5rem; /* 40px */
 }
 
 .section__title {
   color: var(--secondary-accent-color);
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1.125rem; /* 18px */
 }
 
 .section__lead {
@@ -167,7 +161,7 @@
 
 .card__title {
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1.125rem; /* 18px */
 }
 
 .card__title_regular {
@@ -209,20 +203,19 @@
   height: auto;
 }
 
-/* === Подвал: тот же размер экрана, что у шапки, но текст — по центру === */
 .footer {
   display: grid;
   place-items: center;
   height: 100vh;
   min-height: 41.75rem; /* 668px */
   margin-top: 2.5rem; /* 40px */
-  padding: 0.625rem;
+  padding: 0.625rem; /* 10px */
 }
 
 .footer__title {
   color: var(--heading-font-color);
   font-weight: 700;
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem); /* 116px … 120px */
   line-height: 0.825;
   text-shadow: 2px 2px 0 var(--accent-color);
 }
@@ -230,11 +223,11 @@
 @media (min-width: 768px) {
   .decorated-zone::before {
     top: 1.25rem; /* 20px */
-    right: 1.25rem;
+    right: 1.25rem; /* 20px */
   }
   .decorated-zone::after {
-    bottom: 1.25rem;
-    left: 1.25rem;
+    bottom: 1.25rem; /* 20px */
+    left: 1.25rem; /* 20px */
   }
 
   .header {
@@ -253,13 +246,13 @@
   }
 
   .header__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); /* 120px … 157px */
     margin-top: 10.938rem; /* 175px */
     margin-left: -1.25rem; /* -20px */
   }
 
   .footer__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); /* 120px … 157px */
   }
 
   .header__description {
@@ -284,7 +277,7 @@
 
   .section_side-title {
     display: grid;
-    grid-template-columns: 14.75rem 1fr;
+    grid-template-columns: 14.75rem 1fr; /* 236px */
     align-items: start;
     column-gap: 1.25rem; /* 20px */
   }
@@ -308,27 +301,22 @@
     object-fit: cover;
     object-position: center;
   }
-  /* 1. sunset — верхняя левая широкая ячейка */
   .gallery__image:nth-child(1) {
     grid-column: 1 / 3;
     grid-row: 1;
   }
-  /* 2. ice-cream — правая высокая ячейка на две строки */
   .gallery__image:nth-child(2) {
     grid-column: 3;
     grid-row: 1 / 3;
   }
-  /* 3. tape — левая высокая ячейка на две строки */
   .gallery__image:nth-child(3) {
     grid-column: 1;
     grid-row: 2 / 4;
   }
-  /* 4. books — центральная маленькая ячейка */
   .gallery__image:nth-child(4) {
     grid-column: 2;
     grid-row: 2;
   }
-  /* 5. street — нижняя широкая ячейка */
   .gallery__image:nth-child(5) {
     grid-column: 2 / 4;
     grid-row: 3;
@@ -362,7 +350,7 @@
   }
 
   .section_side-title {
-    grid-template-columns: 19.6875rem 1fr;
+    grid-template-columns: 19.6875rem 1fr; /* 315px */
   }
 
   .card-list_three-columns {
