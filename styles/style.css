@@ -16,7 +16,20 @@
   position: relative;
 }
 
-.decorated-zone::before,
+.decorated-zone::before {
+  content: '';
+  position: absolute;
+  width: 1.5625rem; /* 25px */
+  height: 1.5625rem;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--secondary-accent-color);
+  top: 0.625rem; /* 10px */
+  right: 0.625rem;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
 .decorated-zone::after {
   content: '';
   position: absolute;
@@ -25,16 +38,6 @@
   border-width: 0;
   border-style: solid;
   border-color: var(--secondary-accent-color);
-}
-
-.decorated-zone::before {
-  top: 0.625rem; /* 10px */
-  right: 0.625rem;
-  border-top-width: 1px;
-  border-right-width: 1px;
-}
-
-.decorated-zone::after {
   bottom: 0.625rem;
   left: 0.625rem;
   border-bottom-width: 1px;
@@ -86,20 +89,16 @@
   outline: none;
 }
 
-.header__theme-menu-button:not(.header__theme-menu-button_active):hover {
+.header__theme-menu-button:hover {
   border-color: var(--theme-button-hover-border);
 }
 
-/* === Общая типографика заголовков "no focus" / "focus": шапка и футер === */
-.header__title,
-.footer__title {
+/* === Заголовки "no focus" / "focus": шапка и футер === */
+.header__title {
   color: var(--heading-font-color);
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.825;
-}
-
-.header__title {
   margin-top: 4.2rem;
   text-shadow: 4px 4px 0 var(--accent-color);
 }
@@ -113,6 +112,10 @@
 .title-decor {
   color: var(--title-text-color);
   background-color: var(--accent-color);
+}
+
+.title-decor--size {
+  font-size: 18px
 }
 
 /* === Декоративная надпись "REC" с точкой === */
@@ -136,80 +139,62 @@
   background-color: var(--accent-color);
 }
 
-.distraction {
-  margin-top: 2.5rem; /* 40px */
-  padding: 0 0.625rem; /* 10px */
-}
-
-.reasons,
-.tips,
-.gallery {
+/* === Секции с карточками === */
+.section {
   margin-top: 3.125rem; /* 50px */
   padding: 0 0.625rem; /* 10px */
 }
 
-/* === Секции: заголовки h2 === */
-.distraction__title,
-.reasons__title,
-.tips__title {
+.section_after-header {
+  margin-top: 2.5rem; /* 40px — первая секция после шапки */
+}
+
+.section__title {
   color: var(--secondary-accent-color);
   font-weight: 700;
   font-size: 1.125rem;
 }
 
-/* === Секции: списки карточек === */
-.distraction__list,
-.reasons__list,
-.tips__list {
+.section__lead {
+  font-weight: 700;
+}
+
+.card-list {
   display: grid;
   gap: 1.25rem; /* 20px */
   margin-top: 1.25rem; /* 20px */
 }
 
-.distraction__card-title,
-.reasons__card-title {
+.card__title {
   font-weight: 700;
   font-size: 1.125rem;
 }
 
-.tips__card-title {
+.card__title_regular {
   font-weight: 400;
-  font-size: 1.125rem;
 }
 
-/* === Карточки: текст абзацев === */
-.distraction__card-text,
-.reasons__card-text,
-.tips__card-text {
+.card__text {
   margin-top: 0.625rem; /* 10px */
   color: var(--text-color);
   font-weight: 400;
 }
 
-/* === Инлайн-ссылки в тексте === */
-.distraction__link,
-.tips__link {
+.link-decor {
   border-radius: 2px;
   color: var(--text-color);
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-.distraction__link:hover,
-.tips__link:hover {
+.link-decor:hover {
   text-decoration: underline;
   text-decoration-skip-ink: none;
 }
 
-.distraction__link:focus-visible,
-.tips__link:focus-visible {
+.link-decor:focus-visible {
   border: 1px solid var(--text-color);
   outline: none;
-}
-
-.tips__lead,
-.gallery__caption {
-  font-weight: 700;
 }
 
 .gallery__grid {
@@ -235,6 +220,10 @@
 }
 
 .footer__title {
+  color: var(--heading-font-color);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.825;
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
@@ -248,24 +237,29 @@
     left: 1.25rem;
   }
 
-  .header,
+  .header {
+    min-height: 64rem; /* 1024px */
+    padding: 1.25rem; /* 20px */
+  }
+
   .footer {
     min-height: 64rem; /* 1024px */
     padding: 1.25rem; /* 20px */
+    margin-top: 3.75rem; /* 60px */
   }
 
   .header__theme-menu {
     margin-top: 10.65rem; /* 170.4px */
   }
 
-  .header__title,
-  .footer__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-
   .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     margin-top: 10.938rem; /* 175px */
     margin-left: -1.25rem; /* -20px */
+  }
+
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__description {
@@ -279,32 +273,27 @@
     right: 1.8125rem; /* 29px */
   }
 
-  .distraction {
-    margin-top: 3.75rem; /* 60px */
-    padding: 0 1.25rem;
-  }
-
-  .reasons,
-  .tips,
-  .gallery {
+  .section {
     margin-top: 5rem; /* 80px */
     padding: 0 1.25rem; /* 20px */
   }
 
-  .distraction,
-  .tips {
+  .section_after-header {
+    margin-top: 3.75rem; /* 60px */
+  }
+
+  .section_side-title {
     display: grid;
     grid-template-columns: 14.75rem 1fr;
     align-items: start;
     column-gap: 1.25rem; /* 20px */
   }
 
-  .distraction__list,
-  .tips__list {
+  .card-list_no-top-margin {
     margin-top: 0;
   }
 
-  .reasons__title {
+  .section__title_one-third {
     width: 30%;
   }
 
@@ -344,14 +333,13 @@
     grid-column: 2 / 4;
     grid-row: 3;
   }
-
-  .footer {
-    margin-top: 3.75rem; /* 60px */
-  }
 }
 
 @media (min-width: 1024px) {
-  .header,
+  .header {
+    min-height: 48rem; /* 768px */
+  }
+
   .footer {
     min-height: 48rem; /* 768px */
   }
@@ -373,12 +361,11 @@
     margin-top: 7.125rem; /* 114px */
   }
 
-  .distraction,
-  .tips {
+  .section_side-title {
     grid-template-columns: 19.6875rem 1fr;
   }
 
-  .reasons__list {
+  .card-list_three-columns {
     grid-template-columns: repeat(3, 1fr);
   }
 
