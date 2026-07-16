@@ -9,6 +9,6 @@
   --page-bg-image: url('../images/cover-image-dark.png');
 }
 
-:root.theme-dark .header__rec-decor {
+.theme-dark .header__rec-decor {
   display: flex;
 }
